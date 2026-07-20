@@ -1,0 +1,34 @@
+{
+  "name": "web-piky-505",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene mi portfolio web personal donde expongo mis proyectos, experiencia y certificados.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PIKY-505/WEB-PIKY-505.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PIKY-505/WEB-PIKY-505/issues"
+  },
+  "homepage": "https://github.com/PIKY-505/WEB-PIKY-505#readme",
+  "dependencies": {
+    "@react-three/fiber": "^9.6.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "three": "^0.185.1",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.3",
+    "vite": "^8.1.5"
+  }
+}
