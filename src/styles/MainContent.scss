@@ -1,0 +1,225 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  
+  padding: max(100px, env(safe-area-inset-top) + 40px) max(20px, env(safe-area-inset-right)) max(150px, env(safe-area-inset-bottom) + 40px) max(20px, env(safe-area-inset-left));
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.glass-card {
+  width: 100%;
+  max-width: 600px;
+  min-height: 400px;
+  padding: 40px;
+
+  /* MINIMALIST MONOCHROME CARD */
+  background: #050505;
+  border: 1px solid var(--accent-primary);
+  border-radius: 0px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+
+  color: var(--text-main);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--font-mono);
+
+  h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .content-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+  }
+}
+
+/* --- GALERÍA --- */
+.gallery-container {
+  margin-top: 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.gallery-track {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: max-content;
+  animation: scrollLeft 60s linear infinite;
+  padding: 30px 0;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.gallery-item {
+  height: 220px;
+  width: 150px;
+  border-radius: 0px;
+  box-shadow: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  object-fit: cover;
+  border: 1px solid #333333;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.08);
+    border: 1px solid var(--accent-primary);
+    z-index: 10;
+  }
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.content-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 30px auto;
+  padding: 0 20px;
+  
+  .glass-card {
+    flex: 1;
+  }
+}
+
+.layout-spacer {
+  width: 70px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* --- NAVEGACIÓN CAPÍTULOS --- */
+.chapter-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 60px;
+  height: 700px; 
+  min-height: 400px; 
+  gap: 2rem; 
+  z-index: 20;
+  flex-shrink: 0;
+  padding: 10px 0;
+}
+
+.nav-line-wrapper {
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.nav-line-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333333;
+}
+
+.nav-line-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--accent-primary);
+  z-index: 2;
+  transition: height 0.3s ease;
+}
+
+.nav-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 0px;
+  flex-shrink: 0; 
+  background: #0a0a0a;
+  border: 1px solid #444444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  color: #888888;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: var(--accent-primary);
+    color: #ffffff;
+  }
+
+  &.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: #000000;
+    transform: scale(1.15);
+  }
+
+  &.completed {
+    background: #222222;
+    border-color: #555555;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 900px) {
+  .layout-spacer {
+    display: none;
+  }
+}

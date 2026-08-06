@@ -1,0 +1,89 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.dock-outer {
+  margin: 0;
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* --- EL PANEL (Minimalist Static Dock) --- */
+.dock-panel {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.6rem;
+  padding: 6px 10px;
+
+  /* Estilo Minimalista Estático */
+  background: #000000;
+  border: 1px solid var(--accent-primary);
+  border-radius: 0px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+}
+
+/* --- LOS ICONOS (Fijos, sin animación magnética) --- */
+.dock-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+
+  background-color: #050505;
+  border: 1px solid #333333;
+  color: #ffffff;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+/* Hover estático e instantáneo */
+.dock-item:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* --- LAS ETIQUETAS (Tooltips) --- */
+.dock-label {
+  position: absolute;
+  top: -2.6rem;
+  left: 50%;
+  width: fit-content;
+  white-space: pre;
+
+  border-radius: 0px;
+  border: 1px solid var(--accent-primary);
+  background-color: #000000;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: #ffffff;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 105;
+}
