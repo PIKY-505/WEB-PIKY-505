@@ -316,15 +316,15 @@ const LoadingScreen = ({ progress }) => {
 
             <div className="log-line blink-cursor ok">
               {progress < 100
-                ? `[ .... ] LOADING SYSTEM MODULES (${progress.toFixed(0)}%)`
-                : `[  OK  ] SYSTEM BOOT COMPLETE. INITIALIZING WORKSPACE.`}
+                ? `[ .... ] INITIALIZING PORTFOLIO MODULES (${progress.toFixed(0)}%)`
+                : `[  OK  ] PORTFOLIO READY. WELCOME.`}
             </div>
           </div>
         </div>
 
         <div className="terminal-progress-wrapper">
           <div className="progress-info">
-            <span className="loading-label">BOOT_STATUS</span>
+            <span className="loading-label">PORTFOLIO_STATUS</span>
             <span className="loading-percent">{progress.toFixed(1)}%</span>
           </div>
 

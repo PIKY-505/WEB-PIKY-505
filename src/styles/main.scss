@@ -11,11 +11,12 @@ body {
   padding: 0;
   font-family: var(--font-main);
   background-color: var(--bg-color);
-  overflow: hidden; /* Vital para efectos de pantalla completa */
+  overflow: hidden; /* Vital for full-screen effects */
   width: 100vw;
   height: 100vh;
   user-select: none;
   color: var(--accent-color);
+  cursor: auto; /* Ensure standard browser cursor */
 }
 
 /* SISTEMA DE CAPAS */
@@ -23,13 +24,6 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.layer-game {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
 }
 
 .layer-ui {
@@ -43,3 +37,126 @@ body {
   }
 }
 
+/* PORTFOLIO HERO BANNER */
+.portfolio-hero-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+  padding: 20px;
+}
+
+.portfolio-hero-banner {
+  pointer-events: auto;
+  max-width: 640px;
+  background: rgba(8, 8, 12, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2.5rem 2rem;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #a0a0ad;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  .hero-title {
+    margin: 0 0 0.8rem 0;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-subtitle {
+    margin: 0 auto 1.8rem auto;
+    font-size: 0.95rem;
+    color: #b0b0b8;
+    line-height: 1.6;
+    max-width: 500px;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+
+      &.primary {
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #ffffff;
+
+        &:hover {
+          background: #e0e0e0;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &.secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: #ffffff;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-hero-banner {
+    padding: 1.8rem 1.2rem;
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+
+      .hero-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

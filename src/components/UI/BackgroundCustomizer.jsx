@@ -1,5 +1,5 @@
 import React from "react";
-import { useGameStore } from "../../store/useStore";
+import { useStore } from "../../store/useStore";
 import { FiX, FiCheck, FiRotateCcw } from "react-icons/fi";
 import "../../styles/BackgroundCustomizer.scss";
 
@@ -324,7 +324,7 @@ const BackgroundCustomizer = ({
     setPixelSnowConfig: storeSetPixelSnowConfig,
     hyperspeedConfig: storeHyperspeedConfig,
     setHyperspeedConfig: storeSetHyperspeedConfig,
-  } = useGameStore();
+  } = useStore();
 
   // --- CONFIG RESOLUTION ---
   const floatingLinesConfig = propFlConfig || storeFlConfig;

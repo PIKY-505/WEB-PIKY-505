@@ -1,5 +1,5 @@
 import React from "react";
-import { useGameStore } from "../../store/useStore";
+import { useStore } from "../../store/useStore";
 import GradientBackground from "./GradientBackground";
 import Galaxy from "./Galaxy";
 import Silk from "./Silk";
@@ -31,7 +31,7 @@ const BackgroundController = ({
     gradientConfig: storeGradientConfig,
     pixelSnowConfig: storePixelSnowConfig,
     hyperspeedConfig: storeHyperspeedConfig,
-  } = useGameStore();
+  } = useStore();
 
   // --- CONFIG RESOLUTION ---
   const floatingLinesConfig = propFlConfig || storeFlConfig;
